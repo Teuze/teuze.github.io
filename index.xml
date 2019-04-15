@@ -22,5 +22,15 @@ I was born in October 24th, 1995, in the French city of Grenoble.  As long as I 
 First seeing them as entertaining devices, I soon started to disect them, and trying to understand how every part interacts with the others in a hands-on, hardware point of view. It led me to the discovery of open hardware and open source software, and motivated my first (unfinished) project : a semi-autonomous hexapod build over the SSC-32 servo board and a Raspberry Pi.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>/apropos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/apropos/</guid>
+      <description>À Propos Salut, c&amp;rsquo;est Richard !  Bienvenue sur mon blog.
+Je suis né à Grenoble en 1995. Comme beaucoup, j&amp;rsquo;ai découvert l&amp;rsquo;informatique à travers les jeux vidéos. Poussé par la curiosité, j&amp;rsquo;ai assez rapidement essayé d&amp;rsquo;en comprendre les mécanismes, tout d&amp;rsquo;abord en démontant de façon systématique mon matériel, puis en adoptant Linux. Mon premier projet, la construction (inachevée) d&amp;rsquo;un hexapode semi-autonome, reflète assez bien cette transition du matériel au logiciel, et m&amp;rsquo;a donné les outils et la motivation de continuer dans ce sens.</description>
+    </item>
+    
   </channel>
 </rss>
