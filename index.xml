@@ -7,9 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Richard Jarry-Randerson</copyright>
+    <lastBuildDate>Thu, 25 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Docker Primer</title>
+      <link>/posts/a-docker-primer/</link>
+      <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/a-docker-primer/</guid>
+      <description>What is Docker ? Docker is a software overlay allowing its users to develop apps in environments called containers. It leverages kernel-side virtualisation technologies in order to make guests systems run as if they were their own.
+Docker differs from lower-level virtualisation engines like VMWare or VirtualBox because Docker containers all share the same kernel, while VBoxes for example use each a completely separate stack, from the emulated BIOS upwards.</description>
+    </item>
     
     <item>
       <title></title>
