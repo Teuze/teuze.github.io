@@ -43,7 +43,7 @@ Docker differs from lower-level virtualisation engines like VMWare or VirtualBox
 
 <meta itemprop="datePublished" content="2019-04-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-04-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1787">
+<meta itemprop="wordCount" content="1821">
 
 
 
@@ -330,9 +330,13 @@ push it on the Docker Hub or save it to a gzipped archive file.</p></li>
 sudo docker save imagename 	# Missing args to gzip result
 </code></pre>
 
-<p>Okay, so now we have a cool custom image, but ideally we would like to customize
-its environment so that it can run network analysis directly on a dedicated host
-interface. How do we do that ?</p>
+<p>Okay, so now we have a cool custom image, but as you probably noticed,
+you can&rsquo;t actually use the installed binaries yet, because you enter
+the container as <code>analyzer</code> who has no admin rights.
+Even if you delete line 4 in the Dockerfile, you still won&rsquo;t be able
+to monitor what&rsquo;s going on over your host interface.</p>
+
+<p>How can we setup the container environment in order to make it work ?</p>
 
 <h3 id="setting-up-the-image-environment">Setting up the image environment</h3>
 
@@ -445,13 +449,9 @@ to the huge popularity it currently has. With such a tool, it becomes
 easy to build and seal your software stack by shipping each block as an
 independent container on a monitored, system-internal network.</p>
 
-<p>With such a <strong>power</strong> comes however the <strong>responsibilty</strong> of clearly defining your
+<p>With such a power comes however the responsibilty of clearly defining your
 trust zones and securing your accesses, as Docker runs with near-to-root
 rights and prerogatives.</p>
-
-<p><img src=https://gcdn.emol.cl/comics/files/2015/11/meme-spider-man-p.jpg class=center></img></p>
-
-<!-- IMAGE of SpiderMan or StanLee there -->
 
             </div>
         </article>
