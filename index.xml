@@ -7,17 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Richard Jarry-Randerson</copyright>
-    <lastBuildDate>Thu, 25 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Automatic System Genesis</title>
+      <link>/posts/genesis/</link>
+      <pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/genesis/</guid>
+      <description>Introduction Operating systems for personal computers have drastically evolved over the past few decades. They became modular, thread-aware, architecture-agnostic, capable of handling graphics and virtual environments as well as networking, and much more !
+They also branched and forked into thousands of flavors, creating a plethora of compatibility problems. One of these problems is the system installation process.
+While relying on different installation tools, all systems follow the same logical steps :</description>
+    </item>
+    
+    <item>
       <title>A Docker Primer</title>
-      <link>/posts/a-docker-primer/</link>
+      <link>/posts/docker/</link>
       <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/a-docker-primer/</guid>
+      <guid>/posts/docker/</guid>
       <description>What is Docker ? Docker is a software overlay allowing its users to develop apps in environments called containers. It leverages kernel-side virtualisation technologies in order to make guests systems run as if they were their own.
 Docker differs from lower-level virtualisation engines like VMWare or VirtualBox because Docker containers all share the same kernel, while VBoxes for example use each a completely separate stack, from the emulated BIOS upwards.</description>
     </item>
