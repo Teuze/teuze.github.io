@@ -1,5 +1,5 @@
 +++
-title = "Éléments d'affichage"
+title = "Typographie"
 date = 2026-01-01
 +++
 
@@ -79,7 +79,7 @@ sapicia is sinveli squiatum, core et que aut hariosam ex eat.
 
 ## Blocs
 
-```python,hl_lines=4
+```python,linenos,hl_lines=4
 def factorielle(n: int) -> int:
     """
     Calcul récursif de factorielles d'entiers positifs
@@ -111,7 +111,7 @@ def factorielle(n: int) -> int:
 
 ## Autres éléments
 
-H<sub>2</sub>O 
+C<sub>2</sub>H<sub>6</sub>O <=> H<sub>2</sub>O 
 
 X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 
