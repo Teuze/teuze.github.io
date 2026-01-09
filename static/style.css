@@ -1,0 +1,22 @@
+fieldset {
+  display: inline-block;
+  border: 2px solid #222222;
+  padding: 10px;
+}
+
+input,
+button {
+  font: inherit;
+  color: inherit;
+  background-color: inherit;
+  margin: .5em;
+}
+
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background-color: inherit;
+  border: inherit;
+  margin: .5em;
+}

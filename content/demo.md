@@ -97,6 +97,9 @@ def factorielle(n: int) -> int:
 
 ## Formulaires
 
+<!-- Le style par défaut ne prend pas en charge les formulaires -->
+<link rel="stylesheet" type="text/css" href="/style.css">
+
 <fieldset>
 	<input type="text" placeholder="Champ textuel"/><br/>
 	<input type="number" placeholder="Champ numérique"/><br/>
