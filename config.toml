@@ -3,17 +3,36 @@ base_url = "https://teuze.github.io"
 theme = "terminus"
 title = "Teuze"
 
-# Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-# Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+taxonomies = [{ name = "tags", feed = true }]
+
 [markdown]
-# Whether to do syntax highlighting
+
 render_emoji = true
 highlight_code = true
 highlight_theme = "visual-studio-dark"
 
 [extra]
-# Put all your custom variables here
+
+favicon_emoji = ":q"
+
+color_scheme = "gruvbox-dark"
+
+copyright = "Made with :heart: using [Zola](https://www.getzola.org) and [terminus](https://eyalkalderon.com/terminus)"
+
+main_menu = [
+    { name = "blog", url = "/", trailing_slash = true },
+    { name = "tags", url = "tags", trailing_slash = true },
+]
+
+socials = [
+    { name = "email", url = "mailto:richard.jarry@protonmail.com" },
+    { name = "github", url = "https://github.com/Teuze" },
+    { name = "linkedin", url = "https://www.linkedin.com/in/richard-jarry-01/" },
+]
+
+[extra.content_security_policy]
+enable = false
