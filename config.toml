@@ -11,7 +11,9 @@ build_search_index = true
 
 [markdown]
 # Whether to do syntax highlighting
+render_emoji = true
 highlight_code = true
+highlight_theme = "visual-studio-dark"
 
 [extra]
 # Put all your custom variables here
