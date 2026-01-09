@@ -122,7 +122,7 @@ Tapez <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Suppr</kbd> pour fermer la session.
 <details>
 <summary>Attention, ce qui suit peut heurter la sensibilité des plus jeunes.</summary>
 
-**Bouh !** 👻
+**Bouh !** :ghost:
 
 </details>
 
