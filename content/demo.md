@@ -1,6 +1,10 @@
 +++
 title = "Typographie"
 date = 2026-01-01
+updated = 2026-01-09
+
+[taxonomies]
+tags = ["markdown"]
 +++
 
 Cet article sert d'exemple pour l'affichage d'éléments.<br/>
