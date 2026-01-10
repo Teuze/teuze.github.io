@@ -1,6 +1,7 @@
 fieldset {
   display: inline-block;
   border: 2px solid #222222;
+  background-color: #323232; 
   padding: 10px;
 }
 
@@ -8,7 +9,6 @@ fieldset input,
 fieldset button {
   font: inherit;
   color: inherit;
-  background-color: inherit;
   margin: .5em;
 }
 
@@ -16,7 +16,6 @@ fieldset textarea,
 fieldset select {
   font: inherit;
   color: inherit;
-  background-color: inherit;
   border: inherit;
   margin: .5em;
 }
