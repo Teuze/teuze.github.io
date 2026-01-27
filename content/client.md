@@ -8,6 +8,8 @@ tags = ["python"]
 
 ## Introduction
 
+Bonjour ! :slightly_smiling_face:
+
 Aujourd'hui je vous propose une méthode de conception (un _blueprint_) concernant les clients d'API REST en Python.
 Cela fait maintenant plusieurs fois que je dois en développer un nouveau à titre personnel ou professionnel,
 et je pense avoir convergé vers une solution plutôt ergonomique, qui couvre de nombreux cas d'usage.
@@ -87,33 +89,35 @@ Tous les paramètres d'instanciation du client API sont relayés au client HTTP 
 Le seul paramètre obligatoire est base_url, qui renseigne le préfixe à utiliser pour chaque requête,
 mais il est également possible de d'ajouter des en-têtes, de l'authentification basique, ou des timeouts par exemple.
 
+Le détail de ces options se trouve ici.
+
 ### 1.2 Fonctionnement
 
 Chaque méthode du client d'API est associé à un couple (méthode, ressource).
 Cette association donne le nom et les paramètres de la méthode. 
 
 Une fois la requête formée, on peut l'envoyer.
-Notre client httpx vérifie que le paquet est correctement routé (avec...?), que la session TCP est bien active (avec un timer interne qui expire au bout de 5 secondes par défaut), et que la réponse est au format HTTP.
+Notre client httpx vérifie que le paquet est correctement routé, que la session TCP est bien active (avec un timer interne qui expire au bout de 5 secondes par défaut), et que la réponse est au format HTTP.
 
 La suite est du domaine métier : on vérifie que la réponse indique un succès (raise for status), que les données sont au bon format (json), et avec la bonne structure (model validate).
 
 (Schéma du processus de validation)
 
 On pourrait aller ici une étape plus loin en présentant les données de réponse dans un format plus adapté aux consommateurs de notre client d'API : en effet, WeatherAPI renvoie les températures sous la forme de chaînes de caractères, ce qui n'est pas pratique pour en faire des statistiques.
-On peut passer par les validateurs Pydantic pour effectuer ce genre de conversion dynamique, voici le lien vers la documentation.
+
+On peut passer par les validateurs Pydantic pour effectuer ce genre de conversion dynamique, comme décrit ici.
 
 ## 2. Une interface système
 
 Pour exposer la classe `APIClient` au système, il faut tout d'abord créer une interface en ligne de commande, ou CLI.
-Cette interface doit pouvoir interpréter les paramètres de la commande (quel methode/ressource avec quel paramètre/argument), et les variables de l'environnement d'exécution (la configuration du client HTTP en lui-même).
+Cette interface doit pouvoir interpréter les paramètres de la commande (quelle methode/ressource avec quel paramètre/argument), et les variables de l'environnement d'exécution (la configuration du client HTTP en lui-même).
 
-### 2.1 Interprétation des arguments
+### 2.1 Ingestion des arguments
 
-La première catégorie de modules sont les interpréteurs d'arguments, comme argparse, click, docopt et fire.
-Comme leur nom l'indique, ils facilitent la transmission des paramètres de la commande aux composants internes du script.
-Personnellement j'ai une préférence marquée pour fire, qui va un cran plus loin en systématisant la structure présentée en CLI (affichage contextuel des docstrings, chainage des paramètres, etc.)
-
-Il suffit simplement d'ajouter à la fin du script le code suivant :
+Pour interpréter les arguments d'un script, la solution la plus rudimentaire consiste à évaluer le contenu de `sys.argv`.
+On peut toutefois se simplifier la vie en externalisant la gestion des arguments avec des modules comme argparse, click, docopt ou fire.
+Personnellement j'ai une préférence marquée pour fire, qui va un cran plus loin en générant l'aide et les paramètres directement à partir de l'objet qui lui est présenté.
+Il suffit simplement d'ajouter à la fin du fichier le code suivant :
 
 ```python
 if __name__ == "__main__":
@@ -121,18 +125,48 @@ if __name__ == "__main__":
    fire.Fire(APIClient)
 ```
 
-Python fire : direct sur la classe, ou depuis un objet instancié. 
-Possibilité de chainer les opérations.
-Combiné à Pydantic, permet de récupérer du json en stdout.
-Encourage l'écriture des docstrings.
+Et on peut alors appeler le script comme suit :
 
-### 2.2 ingestion des variables d'environnement
+```bash
+python clients.py --help
+python clients.py --base_url "https://goweather.xyz/v2/weather" - get_weather Paris
+```
 
-Pydantic_settings et les variables d'environnement
+En réutilisant les docstrings des objets qui lui sont présentés, fire encourage la rédaction de documentation interne.
+Notez également le chaînage des opérations dans la seconde commande (instanciation de la classe, puis appel de méthode sur l'objet instancié).
 
-## 3. Du script au module
+### 2.2 Ingestion des variables d'environnement
 
-Structure du projet
+Pour interpréter les variables d'environnement, la solution la plus rudimentaire consiste à évaluer le contenu de `os.environ`.
+On peut là encore se simplifier la vie en externalisant avec le module complémentaire `pydantic_settings`.
+Ce module permet de filter et de valider les données de l'environnement pour les présenter en options de configuration.
+
+```python
+from pydantic_settings import BaseSettings
+
+class APISettings(Settings):
+    base_url: str
+
+# ... le reste du fichier ...
+
+if __name__ == "__main__":
+   import fire
+   settings = APISettings()
+   fire.Fire(APIClient(**settings.model_dump()))
+```
+Usage :
+
+```bash
+WEATHER_BASE_URL="http://localhost:8000/" python clients.py get_weather Paris
+```
+
+Aussi possible de gérer les variables depuis un fichier .env ou à l'initialisation de la session utilisateur.
+
+## 3. Du script au projet
+
+Arborescence du projet
+
+Gestion des dépendances
 
 Le fichier pyproject.toml
 

@@ -19,7 +19,7 @@ insert_anchor_links = "right"
 
 [extra]
 
-favicon_emoji = ":q"
+favicon_emoji = ":w"
 
 color_scheme = "gruvbox-dark"
 
