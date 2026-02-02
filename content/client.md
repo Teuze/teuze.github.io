@@ -115,7 +115,7 @@ on vérifie que la réponse est un succès (`raise_for_status`),
 que les données sont au bon format (`json`),
 et avec la bonne structure (`model_validate`).
 
-(Schéma du processus de validation)
+<!-- Schéma du processus de validation -->
 
 On pourrait aller ici une étape plus loin en présentant les données de réponse dans un format plus adapté aux consommateurs de notre client d'API :
 en effet, WeatherAPI renvoie les températures sous la forme de chaînes de caractères, ce qui n'est pas pratique pour en faire des statistiques.
