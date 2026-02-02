@@ -21,13 +21,13 @@ En Python, de nombreuses options s'offrent à nous.
 
 Inclus dans la bibliothèque standard, il y a 
 [urllib.request](https://docs.python.org/3/library/urllib.request.html),
-[http.client](https://docs.python.org/3/library/http.client.html), voire
-[socket](https://docs.python.org/3/library/socket.html) à disposition,
+[http.client](https://docs.python.org/3/library/http.client.html),
+voire [socket](https://docs.python.org/3/library/socket.html) à disposition,
 mais il faut reconnaitre que leur interface publique est un peu austère.
 
 Plus accessibles, et disponibles sur PyPi, le célébrissime
-[requests](https://docs.python-requests.org/en/latest/) et son rival
-[httpx](https://www.python-httpx.org/)
+[requests](https://docs.python-requests.org/en/latest/)
+et son rival [httpx](https://www.python-httpx.org/)
 sont les têtes de file d'une compétition acharnée.
 
 Bien que je continue à utiliser requests pour des petits scripts ou des tests interactifs dans l'invite de commande Python, je préfère httpx dans le cas de projets plus structurés : je le trouve meilleur dans la gestion des paramètres de session, et puis il gère aussi les requêtes asynchrones.
