@@ -12,10 +12,13 @@ jobs:
         with:
           submodules: 'recursive'
       
-      - uses: taiki-e/install-action@v2
-        run: zola build
+      - name: Install zola
+        uses: taiki-e/install-action@v2
         with:
           tool: zola@0.21.0
+
+      - name: Build site
+        run: zola build
 
       - name: Upload static files as artifact
         id: deployment
