@@ -160,17 +160,30 @@ Usage :
 WEATHER_BASE_URL="http://localhost:8000/" python clients.py get_weather Paris
 ```
 
-Aussi possible de gérer les variables depuis un fichier .env ou à l'initialisation de la session utilisateur.
+Il est aussi possible de gérer les variables depuis un fichier .env ou à l'initialisation de la session utilisateur.
 
 ## 3. Du script au projet
 
 Arborescence du projet
 
-Gestion des dépendances
+```
+.
+├── src
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── clients.py
+│   ├── models.py
+│   └── settings.py
+├── pyproject.toml
+└── README.md
+```
 
-Le fichier pyproject.toml
+Mettre le point d'entrée du module dans le fichier `__main__.py` permet l'usage de la commande `python -m <modulename>`
 
-Intégration continue
+Le fichier pyproject.toml définit les métadonnées du module : nom, version, auteur(s), dépendances, entre autres.
+Il est possible de définir dynamiquement la version du module en l'association au système des tags gits avec `setuptools_scm`.
+
+Une fois que le projet est hebergé sur un serveur git, il est récupérable ainsi : `pip install git+ssh://git@mon-serveur-git/weather.git@(x.y.z|branchname)`
 
 ## Conclusion
 
@@ -178,6 +191,6 @@ Résumé
 
 Méthodologie de test
 
-Développements ultérieurs : API SOAP (xml2dict)
+Développements ultérieurs : exceptions, logging
 
 Lien vers le projet
