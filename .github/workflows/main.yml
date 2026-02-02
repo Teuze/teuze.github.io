@@ -12,11 +12,10 @@ jobs:
         with:
           submodules: 'recursive'
       
-      - name: Install zola
-        run: sudo snap install --edge zola
-
-      - name: Build site
+      - uses: taiki-e/install-action@v2
         run: zola build
+        with:
+          tool: zola@0.21.0
 
       - name: Upload static files as artifact
         id: deployment
