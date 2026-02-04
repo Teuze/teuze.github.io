@@ -96,7 +96,7 @@ weather = client.get("Paris")
 
 Tous les paramètres d'instanciation du client API sont relayés au client HTTP sous-jacent.
 Le seul paramètre obligatoire est base_url, qui renseigne le préfixe à utiliser pour chaque requête,
-mais il est également possible de d'ajouter des en-têtes, de l'authentification basique, ou des timeouts par exemple.
+mais il est également possible d'ajouter des en-têtes, de l'authentification basique, ou des timeouts par exemple.
 
 Le détail de ces options se trouve [ici](https://www.python-httpx.org/api/#client).
 
@@ -167,7 +167,7 @@ ce module permet de filter et de valider les données de l'environnement pour le
 ```python,name=clients.py
 from pydantic_settings import BaseSettings
 
-class APISettings(Settings):
+class APISettings(BaseSettings):
     base_url: str
 
 # ... le reste du fichier ...
