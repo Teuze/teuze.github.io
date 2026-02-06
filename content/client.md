@@ -1,9 +1,10 @@
 +++
 title = "Client d'API REST"
+description = "Méthode de conception"
 date = 2026-02-03
 
 [taxonomies]
-tags = ["python"]
+tags = ["python", "web"]
 +++
 
 ## Introduction

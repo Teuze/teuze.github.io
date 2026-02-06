@@ -1,5 +1,6 @@
 +++
 title = "Typographie"
+description = "Pour tester l'affichage"
 date = 2026-01-01
 
 [taxonomies]
