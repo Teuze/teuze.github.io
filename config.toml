@@ -26,7 +26,8 @@ color_scheme = "gruvbox-dark"
 copyright = "Made with :heart: using [Zola](https://www.getzola.org) and [terminus](https://eyalkalderon.com/terminus)"
 
 main_menu = [
-    { name = "blog", url = "/", trailing_slash = true },
+    { name = "about", url = "", trailing_slash = true },
+    { name = "posts", url = "posts", trailing_slash = true },
     { name = "tags", url = "tags", trailing_slash = true },
 ]
 

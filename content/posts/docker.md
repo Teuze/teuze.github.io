@@ -7,7 +7,7 @@ date = 2019-04-25
 tags = ["docker"]
 +++
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_(container_engine)_logo.svg" alt="Docker logo" class="center"></img> 
+![logo](https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_(container_engine)_logo.svg)
 
 <br/>
 
