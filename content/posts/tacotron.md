@@ -7,7 +7,7 @@ date = 2026-03-02
 tags = ["ai", "tts", "pytorch"]
 +++
 
-# Introduction
+## Introduction
 
 This story started four years ago after a stupid bet I made with myself:
 I wanted to train a neural network to talk like Emmanuel Macron so that I could prank my friends and colleagues.
@@ -15,7 +15,7 @@ I wanted to train a neural network to talk like Emmanuel Macron so that I could 
 Spoiler alert, the experiment failed.
 Still, the training process remains interesting, and the outcome although useless is pretty funny.
 
-# Data collection
+## 1. Data collection
 
 In order to train a text-to-speech (TTS) model, you need text transcripts as input data and sound files as output data. 
 
@@ -41,7 +41,7 @@ that's about a fifth of the reference dataset called [LJSpeech][2].
 Lastly, I dumped the clip paths and transcripts into a pipe-delimited CSV table.
 
 
-# Model selection
+## 2. Model selection
 
 I chose [Tacotron2][3] because it doesn't require any data preprocessing.
 Basically, what it does is that it generates spectrograms,
@@ -57,7 +57,7 @@ The project did require a few adjustments to make it work on Ubuntu 24.04 :
 You may also need to adjust some training parameters: in my case, I had to add French accents to the character set.
 You can find the updated project [here](https://github.com/Teuze/tacotron2/tree/deps/remove-tensorflow).
 
-# Training results
+## 3. Training results
 
 I trained the model for 32k steps, it took about 14 hours on an NVidia RTX 3060.
 
@@ -116,7 +116,7 @@ What? :thinking:
 The tone and the timbre are recognizable, but the content is not.<br/>
 The model did not converge: could it be an alignment problem?
 
-# Conclusion
+## Conclusion
 
 It was fun but the results are a little bit disappointing.
 Nowadays it's just not worth training your own TTS to clone a voice, because
