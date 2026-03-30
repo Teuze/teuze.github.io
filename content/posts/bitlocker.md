@@ -23,7 +23,7 @@ L'activation de Bitlocker se fait depuis Windows 10 ou ultérieur et requiert un
 Ce périphérique doit contenir une partition NTFS active [d'au moins 250 Mo][bitlocker-requirements].
 
 Pour que le chiffrement soit compatible entre systèmes, il faut sélectionner :
- - Déverrouillage par mot de passe (je conseille le [diceware][diceware])
+ - Déverrouillage par mot de passe
  - Enregistrer la clé de récupération dans un fichier
  - Chiffrer tout le lecteur
  - Mode de chiffrement compatible
@@ -49,7 +49,9 @@ Pour que le chiffrement soit compatible entre systèmes, il faut sélectionner :
     const alignments = new EasyCarousel('.chiffrement', carouselParams);
 </script>
 
-Le chiffrement initial peut être un peu long, pour un disque dur de 250 Go c'était environ 45 minutes si je me souviens bien. 
+Le chiffrement initial peut être un peu long, pour un disque dur de 250 Go c'était environ 45 minutes si je me souviens bien.
+
+Si vous séchez sur le choix du mot de passe, je vous conseille [diceware][diceware].
 
 ## 2. Utilisation
 
@@ -59,11 +61,11 @@ Sur Windows 10 et ultérieur, le disque est visible depuis l'explorateur de fich
 Au moment de brancher le périphérique, le système détecte une partition chiffrée et demande le mot de passe.
 Il y a aussi une fenêtre d'erreur qui s'affiche, avertissant l'utilisateur que l'ouverture automatique a échoué.
 
-Sans le mot de passe, ça paraît plutôt normal.
+Sans le mot de passe, ça paraît normal.
 
 <figure>
 	<img src="/bitlocker/usage/windows-01.png" alt="Erreur bénigne de déverrouillage">
-	<figcaption>Cliquez sur "Déverrouiller le lecteur" et ignorez l'erreur</figcaption>
+	<figcaption>Vous pouvez ignorer l'erreur</figcaption>
 </figure>
 
 Apparemment, il y aurait aussi une commande pour contrôler le chiffrement bitlocker depuis le terminal : [manage-bde][manage-bde]
@@ -92,13 +94,13 @@ Le dispositif qui permet le déchiffrement en coulisses s'apelle [`cryptsetup`][
 Avec cette méthode, on utilise Windows pour le chiffrement initial du disque, puis Windows ou Linux pour l'usage au quotidien.
 Le plus important c'est qu'il n'y a rien besoin d'installer pour que cela fonctionne, tout est natif. 
 
-Il reste toutefois plusieurs limitations :
+Il reste toutefois quelques limitations :
 
 1. Le chiffrement n'est pas disponible sur Linux
 2. La technologie de chiffrement est propriétaire
 3. Les autres systèmes (OSX, BSD) ne sont pas pris en charge
 
-Ces limitations pourraient facilement être contournées si on s'autorise l'installation d'un logiciel tiers sur le système hôte.
+Ces limitations pourraient facilement être contournées si on s'autorisait l'installation d'un logiciel tiers sur le système hôte.
 Dans un tel scénario, [VeraCrypt][veracrypt] semble être une alternative pertinente.
 
 [bitlocker-requirements]: https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/bitlocker-drive-encryption?view=windows-11#bitlocker-drive-encryption-partitioning-requirements
