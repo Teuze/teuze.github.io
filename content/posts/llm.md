@@ -16,6 +16,7 @@ J'ai alors découvert une nouvelle façon de travailler : en effet, en connectan
 Cela m'a donné envie de reproduire cet écosystème à la maison.
 
 **Attention**: la configuration qui suit requiert une carte graphique avec au moins 8GB de VRAM pour être utilisable.
+Même avec une telle configuration, les résultats ne seront pas à la hauteur d'un service professionnel.
 
 ## 1. Le moteur d'inférence
 
@@ -24,31 +25,50 @@ Les plus pertinentes pour un usage local sont [Ollama][1], [LMStudio][2] et [lla
 (notons aussi [vLLM][4], qui semble toutefois plutôt orienté production).
 Toutes ces solutions sont disponibles sous la forme de conteneurs.
 
-Chez moi, j'utilise Ollama en tant que service podman :
+Chez moi, j'utilise `llama.cpp` en tant que service Docker Compose :
+
+```yaml
+services:
+
+  llama:
+    image: 'ghcr.io/ggml-org/llama.cpp:server-cuda'
+    container_name: llama
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: ["gpu"]
+              driver: nvidia
+              count: all
+
+volumes:
+  llama-data:
+```
 
 Une fois le service installé, il faut choisir un modèle.
 
 | Modèle   | Variante | Entreprise | Date de sortie |
 |---------------------|------------|---|------------|
-| qwen3.5 | | | |
-| gemma4 | | | |
-| granite4 | | | |
-| phi4-mini | | | |
-| ministral-3 | | | |
+| Qwen | `unsloth/Qwen3.5-9B-GGUF:Q6_K` | Alibaba | 2026-05-13 |
+| Gemma | `unsloth/gemma-4-E4B-it-GGUF:Q6_K` | Google | 2026-07-17 |
+| Granite | `ibm-granite/granite-4.2-8b-GGUF:Q6_K` | IBM | 2026-08-21 |
+| LFM | `LiquidAI/LFM3-Omni-2B-GGUF:Q8_0` | LiquidAI | 2026-10-26 |
 
 [1]: https://ollama.com/
 [2]: https://lmstudio.ai/
 [3]: https://llama.app/
 [4]: https://vllm.ai/
 
-Ollama 64k context + qwen3.5
 
 ## 2. L'interface web
 
-open-webui
+llama-ui
 
 ## 3. L'agent
 
-codex ou claude code
+En ligne de commande : codex, clude, opencode, openhands, vibe, aider
+
+Depuis VSCode : Continue, Cline, Claude Code, Codex, ou juste Copilat Chat en fait
 
 ## Conclusion
