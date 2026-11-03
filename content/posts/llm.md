@@ -46,20 +46,22 @@ volumes:
   llama-data:
 ```
 
+Si vous n'avez pas de carte graphique, remplacez le tag `server-cuda` par `server` et retirez la section `deploy`.
+
 Une fois le service installé, il faut choisir un modèle.
 
 | Modèle   | Variante | Entreprise | Date de sortie |
 |---------------------|------------|---|------------|
 | [Qwen][5] | `unsloth/Qwen3.5-9B-GGUF:Q6_K` | Alibaba | 2026-05-13 |
 | [Gemma][6] | `unsloth/gemma-4-E4B-it-GGUF:Q6_K` | Google | 2026-07-17 |
-| [Granite][7] | `ibm-granite/granite-4.2-8b-GGUF:Q6_K` | IBM | 2026-08-21 |
+| [Granite][7] | `ibm-granite/granite-4.2-3b-GGUF:Q8_0` | IBM | 2026-08-21 |
 | [LFM][8] | `LiquidAI/LFM3-Omni-2B-GGUF:Q8_0` | LiquidAI | 2026-10-26 |
 | [SmolLM][9] | `ggml-org/SmolLM3-3B-GGUF:Q8_0`| HuggingFace | 2025-07-08 |
 | [Nemotron][10] | `unsloth/NVIDIA-Nemotron-3.5-Bolt-E4B-GGUF:Q6_K_XL`| NVIDIA | 2026-10-24 |
 | [GLM-Z1][11] | `unsloth/GLM-Z1-9B-0414-GGUF:Q4_K_M`| zAI | 2025-07-03 |
 
 Mentions honorables pour Llama3.2 et Ministral-3, ils semblaient intéressants
-mais ne prennent pas en charge le mode "thinking".
+mais ne prennent pas en charge le mode "thinking" requis pour les parties suivantes.
 
 [1]: https://ollama.com/
 [2]: https://lmstudio.ai/
