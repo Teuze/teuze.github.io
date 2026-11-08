@@ -62,7 +62,7 @@ Voici les modèles qui m'ont semblé les plus adaptés pour ma config au moment 
 | [LFM][8]      | `LiquidAI/LFM3-Omni-2B-GGUF:Q8_0`      | LiquidAI   | 2026-10-26     |
 | [Nemotron][9] | `unsloth/NVIDIA-Nemotron-3.5-Bolt-E4B-GGUF:Q6_K_XL`| NVIDIA | 2026-10-24 |
 
-Tous ces modèles sont disponibles sur HuggingFace.
+Tous ces modèles sont disponibles sur [HuggingFace](https://hf.co).
 
 [1]: https://ollama.com/
 [2]: https://lmstudio.ai/
@@ -90,20 +90,29 @@ l'interface donne des statistiques sur la vitesse d'inférence notamment.
 ## 3. L'agent
 
 En plus de l'interface web, llama fournit une API compatible OpenAI et Anthropic.
-
 C'est sur cette interface que se connectent nos agents.
 
-| Agent     | CLI | GUI | VSCode | Licence | Note | Remarques |
-|-----------|-----|-----|--------|---------|------|-----------|
-| Codex     | oui | oui | oui | | 4/5 | L'extension VSCode est un peu en-dessous |
-| Claude    | oui | oui | oui | | 4/5 | Très efficace mais trop intrusif |
-| Cline     | oui | oui | oui | | 4/5 | L'outil CLI requiert Node.js |
-| Copilot   | oui | non | oui | | 4/5 | Pas encore testé la CLI |
-| Aider     | oui | non | non | | 4/5 | Full CLI |
-| OpenCode  | oui | non | oui | | 3/5 | Full Node.js |
-| OpenHands | oui | non | non | | 2/5 | Long à démarrer |
-| Vibe      | oui | non | oui | | 2/5 | Compliqué à configurer |
-| Continue  | non | non | oui | | 1/5 | Inutilisable |
+| Agent           | CLI | GUI | VSCode | Note | Remarques |
+|-----------------|-----|-----|--------|------|-----------|
+| [Codex][10]     | oui | oui | oui    | 4/5  | L'extension VSCode est un peu en-dessous |
+| [Claude][11]    | oui | oui | oui    | 4/5  | Très efficace mais trop intrusif |
+| [Cline][12]     | oui | oui | oui    | 4/5  | L'outil CLI requiert Node.js |
+| [Copilot][13]   | oui | non | oui    | 4/5  | Pas encore testé la CLI |
+| [Aider][14]     | oui | non | non    | 4/5  | Full CLI |
+| [OpenCode][15]  | oui | non | oui    | 3/5  | Full Node.js |
+| [OpenHands][16] | oui | non | non    | 2/5  | Long à démarrer |
+| [Vibe][17]      | oui | non | oui    | 2/5  | Compliqué à configurer |
+| [Continue][18]  | non | non | oui    | 1/5  | Inutilisable |
+
+[10]: https://openai.com/codex/
+[11]: https://code.claude.com
+[12]: https://cline.bot
+[13]: https://code.visualstudio.com/blogs/2026/06/18/byok-vscode
+[14]: https://aider.chat
+[15]: https://opencode.ai
+[16]: https://www.openhands.dev/
+[17]: https://mistral.ai/products/vibe/
+[18]: https://continue.dev
 
 D'après ce comparatif parfaitement impartial, je suggère donc Claude Code ou Codex
 si vous privilégiez l'expérience utilisateur à la vie privée.
@@ -133,8 +142,23 @@ Exemple de configuration Copilot pour VSCode :
 ]
 ```
 
-Reportage photo concernant l'utilisation en pratique :
+<figure>
+	<img src="/llm/messages.png" alt="Messages">
+	<figcaption>Déroulé de la conversation</figcaption>
+</figure>
 
-TODO
+<br/>
+
+<figure>
+	<img src="/llm/session.png" alt="Session">
+	<figcaption>Statistiques sur le contexte</figcaption>
+</figure>
+
+<br/>
+
+<figure>
+	<img src="/llm/models.png" alt="Modèles">
+	<figcaption>Caractéristiques des modèles</figcaption>
+</figure>
 
 ## Conclusion
