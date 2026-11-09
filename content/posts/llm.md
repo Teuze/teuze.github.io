@@ -26,9 +26,9 @@ Cela m'a donné envie de reproduire cet écosystème à la maison.
 </figure>
 
 **Attention**: la configuration qui suit requiert une carte graphique avec au moins 10GB de VRAM pour être utilisable.
-Même avec une telle configuration, les résultats ne seront pas à la hauteur d'un service professionnel.
+Même avec un tel système, les résultats ne seront pas à la hauteur d'un service professionnel.
 
-## 1. Le coeur : service d'inférence
+## 1. Le coeur : un service d'inférence
 
 Pour faire tourner un LLM, de nombreuses solutions existent.
 Les plus pertinentes pour un usage local sont [Ollama][1], [LM Studio][2], [vLLM][4] et [llama.cpp][3].
@@ -62,12 +62,12 @@ volumes:
   llama-data:
 ```
 
-Si vous n'avez pas de carte graphique, remplacez le tag `server-cuda` par `server` et retirez la section `deploy`.
+Il vous faudra peut-être ajuster le tag `server-cuda` et la section `deploy` en fonction de votre carte graphique.
 
 Une fois le service actif (`docker compose up -d`), passez par l'interface web (`http://localhost:8080`) pour choisir un modèle.
 Activez dans les paramètres l'option « Model Discovery », puis rendez-vous dans l'onglet « Models » pour lancer les recherches.
 
-## 2. Le cerveau : modèles
+## 2. Le cerveau : un modèle
 
 Voici ceux qui m'ont semblé les plus adaptés au moment d'écrire cet article :
 
@@ -121,8 +121,10 @@ La variante se lit `editeur/modele-version-taille-format:quantisation`.
 <script src="https://cdn.jsdelivr.net/npm/@nikba/easy-carousel/dist/easy-carousel.min.js"></script>
 <script>
     const carouselParams = {items: 1, loop: true, nav: true, dots: false}
-    const alignments = new EasyCarousel('.llama-webui', carouselParams);
+    const llama = new EasyCarousel('.llama-webui', carouselParams);
 </script>
+
+Voici quelques stats sur les modèles de tout à l'heure :
 
 | Modèle        | Taille sur disque | Taille en RAM | Contexte  | Débit |
 |---------------|-------------------|---------------|-----------|-------|
@@ -133,9 +135,16 @@ La variante se lit `editeur/modele-version-taille-format:quantisation`.
 | Nemotron      | 7.7GB | ??? | 131k/131k | ??? |
 | Mellum        | 9.2GB | ??? | ??k/131k  | ??? |
 
-## 3. Les mains: agents
+Vous pouvez aussi en essayer d'autres, mais si vous souhaitez les utiliser en tant qu'agents,
+assurez-vous qu'ils aient les capacités "tools" et "thinking".
 
-En plus de l'interface web, llama.cpp fournit une [API](https://llama.app/docs/api) sur laquelle se connectent nos agents.
+## 3. La main : un agent
+
+En plus de l'interface web, llama.cpp fournit une [API d'inférence](https://llama.app/docs/api).<br/>
+Cette API permet à des programmes externes d'utiliser le LLM pour interagir avec d'autres systèmes par le biais d'outils.
+Ces outils peuvent notamment prendre la forme d'exécution locale de commandes, de recherche web, de modification de fichier, etc.
+
+Voici un retour d'expérience sur les agents que j'ai eu l'occasion de tester :
 
 | Agent           | CLI | GUI | VSCode | Note | Remarques |
 |-----------------|-----|-----|--------|------|-----------|
@@ -144,6 +153,7 @@ En plus de l'interface web, llama.cpp fournit une [API](https://llama.app/docs/a
 | [Cline][12]     | oui | oui | oui    | 4/5  | L'outil CLI requiert Node.js |
 | [Copilot][13]   | oui | non | oui    | 4/5  | Pas encore testé la CLI |
 | [Aider][14]     | oui | non | non    | 4/5  | Full CLI |
+| [OpenWebUI][19] | non | oui | non    | 4/5  | Full web |
 | [OpenCode][15]  | oui | non | oui    | 3/5  | Full Node.js |
 | [OpenHands][16] | oui | non | non    | 2/5  | Long à démarrer |
 | [Vibe][17]      | oui | non | oui    | 2/5  | Compliqué à configurer |
@@ -158,10 +168,12 @@ En plus de l'interface web, llama.cpp fournit une [API](https://llama.app/docs/a
 [16]: https://www.openhands.dev/
 [17]: https://mistral.ai/products/vibe/
 [18]: https://continue.dev
+[19]: https://docs.openwebui.com/
 
 D'après ce comparatif parfaitement impartial, je suggère donc Claude Code ou Codex
 si vous privilégiez l'expérience utilisateur à la vie privée.
-Sinon, Copilot pour VSCode et Aider pour la CLI.
+
+Sinon, Copilot pour VSCode, OpenWebUI pour le chat, et Aider pour la CLI.
 
 ### 3.1 En ligne de commande
 
@@ -217,23 +229,30 @@ aider --model openai/unsloth/Qwen3.5-9B-GGUF:Q6_K \
 ]
 ```
 
-<figure>
-	<img src="/llm/messages.png" alt="Messages">
-	<figcaption>Déroulé de la conversation</figcaption>
-</figure>
-
-<br/>
+Aperçu de fonctionnement depuis l'interface :
 
 <figure>
-	<img src="/llm/session.png" alt="Session">
-	<figcaption>Statistiques sur le contexte</figcaption>
+    <div class="vscode">
+        <img src="/llm/vscode/messages.png" style="height: 400px" alt="Messages">
+        <img src="/llm/vscode/session.png" style="height: 400px" alt="Session">
+        <img src="/llm/vscode/models.png" style="height: 400px" alt="Modèles">
+    </div>
 </figure>
 
-<br/>
-
-<figure>
-	<img src="/llm/models.png" alt="Modèles">
-	<figcaption>Caractéristiques des modèles</figcaption>
-</figure>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nikba/easy-carousel/dist/easy-carousel.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@nikba/easy-carousel/dist/easy-carousel.min.js"></script>
+<script>
+    const carouselParams2 = {items: 1, loop: true, nav: true, dots: false}
+    const vscode = new EasyCarousel('.vscode', carouselParams2);
+</script>
 
 ## Conclusion
+
+Les résultats obtenus avec cette méthode sont encourageants :
+la preuve de concept est là, les modèles fonctionnent en mode chat et en mode agent.
+Malheureusement, on voit apparaître assez rapidement les limites du matériel, car le contexte sature assez vite
+et fait planter les agents après quelques tours. Il y a toutefois une petite marge de manoeuvre suivant les modèles,
+et la recherche est encore relativement active à ce sujet : on peut donc garder espoir que l'inférence locale
+continue à se démocratiser dans les prochaines années.
+
+En attendant, l'outillage reste adapté aux fournisseurs externes.
