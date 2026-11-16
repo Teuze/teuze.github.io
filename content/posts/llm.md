@@ -21,7 +21,7 @@ C'est fascinant et déroutant à la fois !
 Cela m'a donné envie de reproduire cet écosystème à la maison.
 
 <figure>
-	<img src="/llm/placeholder.png" alt="Change me">
+	<img src="/llm/fastfetch.png" alt="Spécifications système">
 	<figcaption>Caractéristiques de mon poste de travail</figcaption>
 </figure>
 
@@ -111,8 +111,6 @@ La variante se lit `editeur/modele-version-taille-format:quantisation`.
         <img src="/llm/llama/models.png" style="width: 100%" alt="Modèles disponibles en local">
         <img src="/llm/llama/discover.png" style="width: 100%" alt="Téléchargement de modèles">
         <img src="/llm/llama/loaded-model.png" style="width: 100%" alt="Paramètres du modèle chargé">
-        <img src="/llm/llama/chat.png" style="width: 100%" alt="Discussion">
-        <img src="/llm/llama/statistics.png" style="width: 100%" alt="Statistiques">
     </div>
     <figcaption>Interface web de llama.cpp</figcaption>
 </figure>
@@ -124,16 +122,35 @@ La variante se lit `editeur/modele-version-taille-format:quantisation`.
     const llama = new EasyCarousel('.llama-webui', carouselParams);
 </script>
 
-Voici quelques stats sur les modèles de tout à l'heure :
+Voici quelques stats sur les modèles de tout à l'heure et les discussions qui en sont l'origine.
 
-| Modèle        | Taille sur disque | Taille en RAM | Contexte  | Débit |
-|---------------|-------------------|---------------|-----------|-------|
-| Qwen          | 7.9GB | ??? | 80k/262k  | ??? |
-| Gemma         | 7.7GB | ??? | 131k/131k | ??? |
-| Granite       | 3.7GB | ??? | 80k/131k  | ??? |
-| LFM           | 2.2GB | ??? | 128k/128k | ??? |
-| Nemotron      | 7.7GB | ??? | 131k/131k | ??? |
-| Mellum        | 9.2GB | ??? | ??k/131k  | ??? |
+| Modèle        | Taille | Contexte    | Débit       | Verbosité   | Pertinence |
+|---------------|--------|-------------|-------------|-------------|------------|
+| Qwen          | 7.9GB  | 83k/262k    | 45 token/s  | 2533 tokens | 4/5        |
+| Gemma         | 7.7GB  | 131k/131k   | 63 token/s  | 2799 tokens | 4/5        |
+| Granite       | 3.7GB  | 87k/131k    | 76 token/s  | 2240 tokens | 1/5        |
+| LFM           | 2.2GB  | 128k/128k   | 143 token/s | 2137 tokens | 3/5        |
+| Nemotron      | 7.7GB  | 131k/131k   | 56 token/s  | 2438 tokens | 4/5        |
+| Mellum        | 9.8GB  | 131k/131k   | 123 token/s | 2221 tokens | (échec)    |
+
+<figure>
+    <div class="pouet">
+        <img src="/llm/llama/chat/qwen.png" style="width: 100%" alt="Statstiques (qwen)">
+        <img src="/llm/llama/chat/gemma.png" style="width: 100%" alt="Statstiques (gemma)">
+        <img src="/llm/llama/chat/granite.png" style="width: 100%" alt="Statstiques (granite)">
+        <img src="/llm/llama/chat/lfm.png" style="width: 100%" alt="Statstiques (lfm)">
+        <img src="/llm/llama/chat/nemotron.png" style="width: 100%" alt="Statstiques (nemotron)">
+        <img src="/llm/llama/chat/mellum.png" style="width: 100%" alt="Statstiques (mellum)">
+    </div>
+    <figcaption>Résultats d'inférence pour les modèles sélectionnés</figcaption>
+</figure>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nikba/easy-carousel/dist/easy-carousel.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@nikba/easy-carousel/dist/easy-carousel.min.js"></script>
+<script>
+    const carouselParams3 = {items: 1, loop: true, nav: true, dots: false}
+    const pouet = new EasyCarousel('.pouet', carouselParams3);
+</script>
 
 Vous pouvez aussi en essayer d'autres, mais si vous souhaitez les utiliser en tant qu'agents,
 assurez-vous qu'ils aient les capacités "tools" et "thinking".
