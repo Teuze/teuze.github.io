@@ -22,7 +22,7 @@ Cela m'a donné envie de reproduire cet écosystème à la maison.
 
 <figure>
 	<img src="/llm/fastfetch.png" alt="Spécifications système">
-	<figcaption>Caractéristiques de mon poste de travail</figcaption>
+	<figcaption>Spécifications matérielles</figcaption>
 </figure>
 
 **Attention**: la configuration qui suit requiert une carte graphique avec au moins 10GB de VRAM pour être utilisable.
@@ -126,12 +126,12 @@ Voici quelques stats sur les modèles de tout à l'heure et les discussions qui 
 
 | Modèle        | Taille | Contexte    | Débit       | Verbosité   | Pertinence |
 |---------------|--------|-------------|-------------|-------------|------------|
-| Qwen          | 7.9GB  | 83k/262k    | 45 token/s  | 2533 tokens | 4/5        |
-| Gemma         | 7.7GB  | 131k/131k   | 63 token/s  | 2799 tokens | 4/5        |
-| Granite       | 3.7GB  | 87k/131k    | 76 token/s  | 2240 tokens | 1/5        |
-| LFM           | 2.2GB  | 128k/128k   | 143 token/s | 2137 tokens | 3/5        |
-| Nemotron      | 7.7GB  | 131k/131k   | 56 token/s  | 2438 tokens | 4/5        |
-| Mellum        | 9.8GB  | 131k/131k   | 123 token/s | 2221 tokens | (échec)    |
+| Qwen          | 7.9GB  | 83k/262k    | 45 tok/s  | 2533 tokens | 4/5        |
+| Gemma         | 7.7GB  | 131k/131k   | 63 tok/s  | 2799 tokens | 4/5        |
+| Granite       | 3.7GB  | 87k/131k    | 76 tok/s  | 2240 tokens | 1/5        |
+| LFM           | 2.2GB  | 128k/128k   | 143 tok/s | 2137 tokens | 3/5        |
+| Nemotron      | 7.7GB  | 131k/131k   | 56 tok/s  | 2438 tokens | 4/5        |
+| Mellum        | 9.8GB  | 131k/131k   | 123 tok/s | 2221 tokens | (échec)    |
 
 <figure>
     <div class="pouet">
@@ -142,7 +142,7 @@ Voici quelques stats sur les modèles de tout à l'heure et les discussions qui 
         <img src="/llm/llama/chat/nemotron.png" style="width: 100%" alt="Statstiques (nemotron)">
         <img src="/llm/llama/chat/mellum.png" style="width: 100%" alt="Statstiques (mellum)">
     </div>
-    <figcaption>Résultats d'inférence pour les modèles sélectionnés</figcaption>
+    <figcaption>Résultats d'inférence</figcaption>
 </figure>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nikba/easy-carousel/dist/easy-carousel.min.css">
@@ -246,14 +246,13 @@ aider --model openai/unsloth/Qwen3.5-9B-GGUF:Q6_K \
 ]
 ```
 
-Aperçu de fonctionnement depuis l'interface :
-
 <figure>
     <div class="vscode">
         <img src="/llm/vscode/messages.png" style="height: 400px" alt="Messages">
         <img src="/llm/vscode/session.png" style="height: 400px" alt="Session">
         <img src="/llm/vscode/models.png" style="height: 400px" alt="Modèles">
     </div>
+  <figcaption>Aperçu de fonctionnement</figcaption>
 </figure>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nikba/easy-carousel/dist/easy-carousel.min.css">
